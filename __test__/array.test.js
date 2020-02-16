@@ -1,5 +1,6 @@
 const map = require("../array/map");
 const filter = require("../array/filter");
+const reduce = require("../array/reduce");
 
 describe("array", () => {
   describe("map", () => {
@@ -90,6 +91,35 @@ describe("array", () => {
       };
       const result = arr.filter(fn, obj);
       expect(filter(arr, fn, obj)).toEqual(result);
+    });
+  });
+
+  describe("reduce", () => {
+    it("adds numbers", () => {
+      const arr = [1, 2, 3, 4];
+      const fn = (acc, el) => acc + el;
+      const initialValue = 0;
+      const answer = arr.reduce(fn, initialValue);
+      expect(reduce(arr, fn, initialValue)).toEqual(answer);
+    });
+    it("adds numbers with no initial value", () => {
+      const arr = [1, 2, 3, 4];
+      const fn = (acc, el) => acc + el;
+      const answer = arr.reduce(fn);
+      expect(reduce(arr, fn)).toEqual(answer);
+    });
+    it("uses idx and arr", () => {
+      const arr = [1, 2, 3, 4];
+      const fn = (acc, el, idx, arr) => acc + JSON.stringify([el, idx, arr]);
+      const initialValue = "foobar";
+      const answer = arr.reduce(fn, initialValue);
+      expect(reduce(arr, fn, initialValue)).toEqual(answer);
+    });
+    it("uses idx and arr, no initial value", () => {
+      const arr = [1, 2, 3, 4];
+      const fn = (acc, el, idx, arr) => acc + JSON.stringify([el, idx, arr]);
+      const answer = arr.reduce(fn);
+      expect(reduce(arr, fn)).toEqual(answer);
     });
   });
 });
