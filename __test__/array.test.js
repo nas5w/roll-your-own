@@ -2,6 +2,7 @@ const map = require("../array/map");
 const filter = require("../array/filter");
 const reduce = require("../array/reduce");
 const concat = require("../array/concat");
+const arrayOf = require("../array/of");
 
 describe("array", () => {
   describe("map", () => {
@@ -138,6 +139,18 @@ describe("array", () => {
       const arr4 = [10, 11, 12];
       const result = arr1.concat(arr2, arr3, arr4);
       expect(concat(arr1, arr2, arr3, arr4)).toEqual(result);
+    });
+  });
+  describe("of", () => {
+    it("creates an array from a number", () => {
+      const input = 6;
+      const result = Array.of(input);
+      expect(arrayOf(input)).toEqual(result);
+    });
+    it("creates an array from multiple elements", () => {
+      const inputs = [6, 10, "foo", "bar"];
+      const result = Array.of(...inputs);
+      expect(arrayOf(...inputs)).toEqual(result);
     });
   });
 });
