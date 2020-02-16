@@ -1,6 +1,7 @@
 const map = require("../array/map");
 const filter = require("../array/filter");
 const reduce = require("../array/reduce");
+const concat = require("../array/concat");
 
 describe("array", () => {
   describe("map", () => {
@@ -120,6 +121,23 @@ describe("array", () => {
       const fn = (acc, el, idx, arr) => acc + JSON.stringify([el, idx, arr]);
       const answer = arr.reduce(fn);
       expect(reduce(arr, fn)).toEqual(answer);
+    });
+  });
+
+  describe("concat", () => {
+    it("concatenates two arrays", () => {
+      const arr1 = [1, 2, 3];
+      const arr2 = [4, 5, 6];
+      const result = arr1.concat(arr2);
+      expect(concat(arr1, arr2)).toEqual(result);
+    });
+    it("concatenates many arrays", () => {
+      const arr1 = [1, 2, 3];
+      const arr2 = [4, 5, 6];
+      const arr3 = [7, 8, 9];
+      const arr4 = [10, 11, 12];
+      const result = arr1.concat(arr2, arr3, arr4);
+      expect(concat(arr1, arr2, arr3, arr4)).toEqual(result);
     });
   });
 });
