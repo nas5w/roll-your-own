@@ -1,4 +1,11 @@
-# Roll Your Own
+<div align="center">
+  <img alt="Roll Your Own JavaScript" src="./logo.png" />
+</div>
+<p align="center">
+  A continuously-evolving compendium of javascript tips based on common areas of confusion or misunderstanding.
+</p>
+
+---
 
 This repository is purely educational exploration of recreating built-in JavaScript methods. I started with a number of Array methods, but it would be great to expand to other Object and primitive types as well!
 
