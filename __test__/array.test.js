@@ -3,6 +3,8 @@ const filter = require("../array/filter");
 const reduce = require("../array/reduce");
 const concat = require("../array/concat");
 const arrayOf = require("../array/of");
+const every = require("../array/every");
+const some = require("../array/some");
 
 describe("array", () => {
   describe("map", () => {
@@ -151,6 +153,46 @@ describe("array", () => {
       const inputs = [6, 10, "foo", "bar"];
       const result = Array.of(...inputs);
       expect(arrayOf(...inputs)).toEqual(result);
+    });
+  });
+  describe("every", () => {
+    it("tests a numeric array", () => {
+      const arr = [1, 2, 3, 4, 5, 6];
+      const fn1 = el => el < 6;
+      const fn2 = el => el <= 6;
+      const result1 = arr.every(fn1);
+      const result2 = arr.every(fn2);
+      expect(every(arr, fn1)).toEqual(result1);
+      expect(every(arr, fn2)).toEqual(result2);
+    });
+    it("tests a numeric array with holes", () => {
+      const arr = [1, 2, 3, 4, , 5, 6];
+      const fn1 = el => el < 6;
+      const fn2 = el => el <= 6;
+      const result1 = arr.every(fn1);
+      const result2 = arr.every(fn2);
+      expect(every(arr, fn1)).toEqual(result1);
+      expect(every(arr, fn2)).toEqual(result2);
+    });
+  });
+  describe("some", () => {
+    it("tests a numeric array", () => {
+      const arr = [1, 2, 3, 4, 5, 6];
+      const fn1 = el => el > 3;
+      const fn2 = el => el > 7;
+      const result1 = arr.some(fn1);
+      const result2 = arr.some(fn2);
+      expect(some(arr, fn1)).toEqual(result1);
+      expect(some(arr, fn2)).toEqual(result2);
+    });
+    it("tests a numeric array with holes", () => {
+      const arr = [1, 2, 3, 4, , 5, 6];
+      const fn1 = el => el > 3;
+      const fn2 = el => el > 7;
+      const result1 = arr.some(fn1);
+      const result2 = arr.some(fn2);
+      expect(some(arr, fn1)).toEqual(result1);
+      expect(some(arr, fn2)).toEqual(result2);
     });
   });
 });
