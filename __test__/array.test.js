@@ -5,6 +5,7 @@ const concat = require("../array/concat");
 const arrayOf = require("../array/of");
 const every = require("../array/every");
 const some = require("../array/some");
+const isArray = require("../array/isArray");
 
 describe("array", () => {
   describe("map", () => {
@@ -237,6 +238,17 @@ describe("array", () => {
       const result2 = arr.some(fn2);
       expect(some(arr, fn1)).toEqual(result1);
       expect(some(arr, fn2)).toEqual(result2);
+    });
+  });
+  describe("isArray", () => {
+    it("detects an array is an array", () => {
+      expect(isArray([1, 2, 3])).toBe(true);
+    });
+    it("detects an object is not an array", () => {
+      expect(isArray({ 0: "foo", 1: "bar" })).toBe(false);
+    });
+    it("detects a primitive is not an array", () => {
+      expect(isArray(5)).toBe(false);
     });
   });
 });
