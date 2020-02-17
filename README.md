@@ -7,6 +7,8 @@
 
 ---
 
+[![Build Status](https://travis-ci.com/nas5w/roll-your-own.svg?branch=master)](https://travis-ci.com/nas5w/roll-your-own)
+
 This repository is purely educational exploration of recreating built-in JavaScript methods. I started with a number of Array methods, but it would be great to expand to other Object and primitive types as well!
 
 ## Methods
