@@ -165,6 +165,28 @@ describe("array", () => {
       expect(every(arr, fn1)).toEqual(result1);
       expect(every(arr, fn2)).toEqual(result2);
     });
+    it("uses idx and arr arguments", () => {
+      const arr = [1, 2, 3, 4];
+      const fn = (el, idx, arr) => {
+        return idx < 4 || arr[3] === 4;
+      };
+      const result = arr.every(fn);
+      expect(every(arr, fn)).toEqual(result);
+    });
+    it("uses thisArg", () => {
+      const arr = [1, 2, 3, 4];
+      const obj = {
+        1: true,
+        2: true,
+        3: true,
+        4: true
+      };
+      const fn = function(el) {
+        return this[el];
+      };
+      const result = arr.every(fn, obj);
+      expect(every(arr, fn, obj)).toEqual(result);
+    });
     it("tests a numeric array with holes", () => {
       const arr = [1, 2, 3, 4, , 5, 6];
       const fn1 = el => el < 6;
@@ -184,6 +206,28 @@ describe("array", () => {
       const result2 = arr.some(fn2);
       expect(some(arr, fn1)).toEqual(result1);
       expect(some(arr, fn2)).toEqual(result2);
+    });
+    it("uses idx and arr arguments", () => {
+      const arr = [1, 2, 3, 4];
+      const fn = (el, idx, arr) => {
+        return idx < 4 || arr[3] === 4;
+      };
+      const result = arr.some(fn);
+      expect(some(arr, fn)).toEqual(result);
+    });
+    it("uses thisArg", () => {
+      const arr = [1, 2, 3, 4];
+      const obj = {
+        1: true,
+        2: true,
+        3: true,
+        4: true
+      };
+      const fn = function(el) {
+        return this[el];
+      };
+      const result = arr.some(fn, obj);
+      expect(some(arr, fn, obj)).toEqual(result);
     });
     it("tests a numeric array with holes", () => {
       const arr = [1, 2, 3, 4, , 5, 6];
