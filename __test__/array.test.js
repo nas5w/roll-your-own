@@ -6,6 +6,7 @@ const arrayOf = require("../array/of");
 const every = require("../array/every");
 const some = require("../array/some");
 const isArray = require("../array/isArray");
+const toString = require("../array/toString");
 
 describe("array", () => {
   describe("map", () => {
@@ -249,6 +250,23 @@ describe("array", () => {
     });
     it("detects a primitive is not an array", () => {
       expect(isArray(5)).toBe(false);
+    });
+  });
+  describe("toString", () => {
+    it("converts a simple array to a string", () => {
+      const arr = [1, 2, 3, 4];
+      const result = arr.toString();
+      expect(toString(arr)).toBe(result);
+    });
+    it("converts a simple array with holes to a string", () => {
+      const arr = [1, 2, , , 3, 4];
+      const result = arr.toString();
+      expect(toString(arr)).toBe(result);
+    });
+    it("converts arrays with objects to a string", () => {
+      const arr = [1, 2, { foo: "bar" }, [1, "hello", "world"]];
+      const result = arr.toString();
+      expect(toString(arr)).toBe(result);
     });
   });
 });
