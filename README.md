@@ -37,3 +37,7 @@ Here's the general process to follow to contribute:
 5. Create a Pull Request to this repository with the update(s)
 
 Please try not to use known polyfills for the methods you contribute, I'd like this to remain a learning experience rather than a copy/paste exercise!
+
+---
+
+Want to learn more about JavaScript? Consider signing up for my [free newsletter](https://buttondown.email/typeofnan) where I periodically send out digestible bits of frontend knowledge!
