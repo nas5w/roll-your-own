@@ -40,4 +40,4 @@ Please try not to use known polyfills for the methods you contribute, I'd like t
 
 ---
 
-Want to learn more about JavaScript? Consider signing up for my [free newsletter](https://buttondown.email/typeofnan) where I periodically send out digestible bits of frontend knowledge!
+Want to learn more about JavaScript? Consider signing up for my [free newsletter](https://buttondown.email/typeofnan) where I periodically send out digestible bits of JavaScript knowledge!
