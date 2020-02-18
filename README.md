@@ -27,7 +27,7 @@ This repository is purely educational exploration of recreating built-in JavaScr
   - [of](./array/of.js)
   - [reduce](./array/reduce.js)
   - [some](./array/some.js)
-  - [toString](./array.toString)
+  - [toString](./array/toString.js)
 
 ## Contributing
 
